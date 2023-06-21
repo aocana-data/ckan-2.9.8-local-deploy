@@ -1,0 +1,15 @@
+version: "3"
+
+volumes:
+    solr_data:
+
+services:
+    solr:
+        container_name: solr
+        build:
+            dockerfile: Dockerfile
+        volumes:
+            - ./solr_data:/opt/solr/server/solr/ckan/data
+        ports:
+            - 8983:8983
+        restart: on-failure
